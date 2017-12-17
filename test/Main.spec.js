@@ -170,6 +170,15 @@ describe('Main', function() {
             var result = subject.parse(['', '', 'inputFile']);
             assert.equal(result.paths, 'inputFile');
         });
+
+        it('should throw an Error with a message corresponding to the help when help is requested', function() {
+            var subject = Main();
+            try {
+                subject.parse(['', '', '-h']);
+            } catch (e) {
+                assert.isDefined(e.message);
+            }
+        });
     });
 });
 
