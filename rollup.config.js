@@ -4,6 +4,7 @@ import configuration from './package.json';
 
 export default {
     input: 'src/Main.js',
+    external: 'path',
     plugins: [
 		rootImport({
 		    root: path.join(__dirname, '/src'),
