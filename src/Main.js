@@ -20,7 +20,7 @@ export default function(options) {
         var options = result.options;
         var mandatoryName = userOptions.getMandatoryName();
         if (mandatoryName !== undefined) {
-            options[mandatoryName] = args;
+            options[mandatoryName] = result.args;
         }
         return options;
     };

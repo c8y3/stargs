@@ -160,6 +160,16 @@ describe('Main', function() {
                 subject.parse(['', '/some/directory/programName.ext', '--help']);
             }, '\n  Usage: programName.ext [options]\n\n  Options:\n\n    -h, --help  output usage information');
         });
+
+        it('should not fail when there is a configuration for mandatory arguments', function() {
+            var subject = Main({
+                mandatory: {
+                    name: 'paths'
+                }
+            });
+            var result = subject.parse(['', '', 'inputFile']);
+            assert.equal(result.paths, 'inputFile');
+        });
     });
 });
 
