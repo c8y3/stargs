@@ -1,0 +1,32 @@
+{
+  "name": "stargs",
+  "version": "3.0.1",
+  "description": "Simple testable command-line options parser",
+  "main": "dist/stargs.js",
+  "module": "dist/stargs.es.js",
+  "scripts": {
+    "prepublish": "npm run clean && npm run test && npm run build",
+    "build": "rollup -c",
+    "test": "mocha",
+    "clean": "rm -rf dist/"
+  },
+  "keywords": [
+    "command-line",
+    "argument",
+    "parser",
+    "unit-testable",
+    "simple",
+    "option"
+  ],
+  "author": "Charles Hymans",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+    "babel-register": "^6.26.0",
+    "babel-root-slash-import": "^1.1.0",
+    "chai": "^4.1.2",
+    "mocha": "^4.0.1",
+    "rollup": "^0.52.1",
+    "rollup-plugin-root-import": "^0.2.2"
+  }
+}
