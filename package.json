@@ -20,6 +20,11 @@
   ],
   "author": "Charles Hymans",
   "license": "GPL-3.0",
+  "bugs": "https://github.com/c8y3/stargs/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/c8y3/stargs.git"
+  },
   "devDependencies": {
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
     "babel-register": "^6.26.0",
