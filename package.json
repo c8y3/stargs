@@ -1,6 +1,6 @@
 {
   "name": "stargs",
-  "version": "4.0.2",
+  "version": "4.0.3",
   "description": "Simple testable command-line options parser",
   "main": "dist/stargs.js",
   "module": "dist/stargs.es.js",
