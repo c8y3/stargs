@@ -15,14 +15,14 @@ I hope you like it. It was fun to code.
 ## Installation
 
 ```
-npm install stargs
+$ npm install stargs
 ```
 
 ## Usage
 
 Create a script `example` with the following content:
 
-```
+```js
 #!/usr/bin/env node
 
 const Stargs = require('stargs');
@@ -56,18 +56,18 @@ try {
 Make this script executable:
 
 ```
-chmod +x example
+$ chmod +x example
 ```
 
 Then run it with some arguments:
 
 ```
-./example --boolean --string hello -s remaining arguments
+$ ./example --boolean --string hello -s remaining arguments
 ```
 
 It parses the command line and captures the argument values:
 
-```
+```js
 { boolean: true,
   string: 'hello',
   short: true,
