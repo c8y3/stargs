@@ -86,6 +86,13 @@ describe('Main', function() {
             }, '\n  Usage: programName [options] <description>\n\n  Options:\n\n    -h, --help  output usage information');
         });
 
+        it('should include the args parameter in the usage', function() {
+            var subject = Main({args: 'input'});
+            assert.throws(function() {
+                subject.parse(['', 'programName', '--help']);
+            }, '\n  Usage: programName [options] <input>\n\n  Options:\n\n    -h, --help  output usage information');
+        });
+
         it('should present the short name of a parameter first', function() {
             var subject = Main({
                 options: {

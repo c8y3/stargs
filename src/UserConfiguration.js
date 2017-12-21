@@ -56,9 +56,14 @@ export default function(configuration) {
     };
 
     self.getDescriptions = function() {
+        var mandatoryDescription;
+        mandatoryDescription = configuration.args;
+        if (mandatoryDescription === undefined) {
+            mandatoryDescription = mandatory.description;
+        }
         return {
             program: configuration.description,
-            mandatory: mandatory.description
+            mandatory: mandatoryDescription
         };
     };
 
