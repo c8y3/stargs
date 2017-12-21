@@ -28,10 +28,7 @@ const Stargs = require('stargs');
 
 const parser = Stargs({
     description: 'This is the description of what the program does.',
-    mandatory: {
-        name: 'input',
-        description: 'input_path'
-    },
+    args: 'input',
     options: {
         boolean: {
             description: 'a boolean flag'
@@ -80,7 +77,7 @@ It parses the command line and captures the argument values:
 If no argument (or option `-h` or `--help`) is provided, it outputs the help message:
 ```
 
-  Usage: example [options] <input_path>
+  Usage: example [options] <input>
 
   This is the description of what the program does.
 

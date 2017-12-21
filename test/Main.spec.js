@@ -93,6 +93,12 @@ describe('Main', function() {
             }, '\n  Usage: programName [options] <input>\n\n  Options:\n\n    -h, --help  output usage information');
         });
 
+        it('should output the remaining arguments in args when args is specified', function() {
+            var subject = Main({args: 'input'});
+            var result = subject.parse(['', 'programName', 'file']);
+            assert.deepEqual(['file'], result.args);
+        });
+
         it('should present the short name of a parameter first', function() {
             var subject = Main({
                 options: {

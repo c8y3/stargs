@@ -68,7 +68,12 @@ export default function(configuration) {
     };
 
     self.getMandatoryName = function() {
-        return mandatory.name;
+        var mandatoryName;
+        mandatoryName = mandatory.name;
+        if (configuration.args !== undefined) {
+            mandatoryName = 'args';
+        }
+        return mandatoryName;
     };
 
     return self;
