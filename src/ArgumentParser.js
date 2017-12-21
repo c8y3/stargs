@@ -9,7 +9,9 @@ export default function(definitions) {
         var options = {};
         definitions.forEach(function(definition) {
             var name = definition.name;
-            options[name] = definition.defaultValue;
+            if (name !== undefined) {
+                options[name] = definition.defaultValue;
+            }
         });
 
         return {

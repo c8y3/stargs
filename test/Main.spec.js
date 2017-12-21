@@ -179,6 +179,12 @@ describe('Main', function() {
                 assert.isDefined(e.message);
             }
         });
+
+        it('should not have key undefined in result', function() {
+            var subject = Main();
+            var result = subject.parse(['', '', 'a']);
+            assert.isFalse(result.hasOwnProperty(undefined));
+        });
     });
 });
 

@@ -22,5 +22,14 @@ describe('ArgumentParser', function() {
             var result = subject.parse(['-f', 'value']);
             assert.equal(result.options.flag, 'value');
         });
+
+        it('should not have key undefined in result when an argument with no name is defined', function() {
+            var subject = ArgumentParser([{
+                delimiters: ['-h'],
+                type: 'help'
+            }]);
+            var result = subject.parse(['-h']);
+            assert.isFalse(result.options.hasOwnProperty(undefined));
+        });
     });
 });
