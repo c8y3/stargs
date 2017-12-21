@@ -1,15 +1,15 @@
 import path from 'path';
-import UserOptions from '/UserOptions';
+import UserConfiguration from '/UserConfiguration';
 import ArgumentParser from '/ArgumentParser';
 import Checks from '/Checks';
 
 
-export default function(options) {
-    var userOptions = UserOptions(options);
-    var definitions = userOptions.getOptionDefinitions();
+export default function(configuration) {
+    var userConfiguration = UserConfiguration(configuration);
+    var definitions = userConfiguration.getOptionDefinitions();
 
     var parser = ArgumentParser(definitions);
-    var checks = Checks(definitions, userOptions.getDescriptions());
+    var checks = Checks(definitions, userConfiguration.getDescriptions());
 
     var self = {};
 
@@ -18,7 +18,7 @@ export default function(options) {
         var result = parser.parse(argv.slice(2));
         checks.execute(programName, result);
         var options = result.options;
-        var mandatoryName = userOptions.getMandatoryName();
+        var mandatoryName = userConfiguration.getMandatoryName();
         if (mandatoryName !== undefined) {
             options[mandatoryName] = result.args;
         }

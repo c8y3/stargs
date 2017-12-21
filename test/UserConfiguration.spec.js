@@ -1,10 +1,10 @@
-import UserOptions from '/UserOptions';
+import UserConfiguration from '/UserConfiguration';
 
-describe('UserOptions', function() {
+describe('UserConfiguration', function() {
 
     describe('getOptionDefinitions', function() {
         it('should return the options definitions with help', function() {
-            var subject = UserOptions({});
+            var subject = UserConfiguration({});
             var definitions = subject.getOptionDefinitions();
             assert.deepEqual([{
                 delimiters: ['-h', '--help'],
@@ -14,7 +14,7 @@ describe('UserOptions', function() {
         });
 
         it('should return the description in help', function() {
-            var subject = UserOptions({
+            var subject = UserConfiguration({
                 options: {
                     flag: {
                         description: 'description'
@@ -26,7 +26,7 @@ describe('UserOptions', function() {
         });
 
         it('should return the delimiters in help', function() {
-            var subject = UserOptions({
+            var subject = UserConfiguration({
                 options: {
                     flag: {}
                 }
@@ -36,7 +36,7 @@ describe('UserOptions', function() {
         });
 
         it('should set the name in help when the option is of type string', function() {
-            var subject = UserOptions({
+            var subject = UserConfiguration({
                 options: {
                     flag: {
                         type: 'string'
@@ -48,7 +48,7 @@ describe('UserOptions', function() {
         });
 
         it('should set the default to false for boolean flags', function() {
-            var subject = UserOptions({
+            var subject = UserConfiguration({
                 options: {
                     flag: {}
                 }
