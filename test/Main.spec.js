@@ -74,18 +74,6 @@ describe('Main', function() {
             }, '\n  Usage: programName [options]\n\n  Options:\n\n    -h, --help  output usage information');
         });
 
-        it('should include the mandatory parameter in the usage', function() {
-            var subject = Main({
-                mandatory: {
-                    name: 'mandatory',
-                    description: 'description'
-                }
-            });
-            assert.throws(function() {
-                subject.parse(['', 'programName', '--help']);
-            }, '\n  Usage: programName [options] <description>\n\n  Options:\n\n    -h, --help  output usage information');
-        });
-
         it('should include the args parameter in the usage', function() {
             var subject = Main({args: 'input'});
             assert.throws(function() {
@@ -172,16 +160,6 @@ describe('Main', function() {
             assert.throws(function() {
                 subject.parse(['', '/some/directory/programName.ext', '--help']);
             }, '\n  Usage: programName.ext [options]\n\n  Options:\n\n    -h, --help  output usage information');
-        });
-
-        it('should not fail when there is a configuration for mandatory arguments', function() {
-            var subject = Main({
-                mandatory: {
-                    name: 'paths'
-                }
-            });
-            var result = subject.parse(['', '', 'inputFile']);
-            assert.equal(result.paths, 'inputFile');
         });
 
         it('should throw an Error with a message corresponding to the help when help is requested', function() {

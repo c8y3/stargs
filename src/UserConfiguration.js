@@ -20,10 +20,6 @@ export default function(configuration) {
     }
 
     var definitions = configuration.options;
-    var mandatory = configuration.mandatory;
-    if (mandatory === undefined) {
-        mandatory = {};
-    }
 
     var self = {};
 
@@ -56,24 +52,17 @@ export default function(configuration) {
     };
 
     self.getDescriptions = function() {
-        var mandatoryDescription;
-        mandatoryDescription = configuration.args;
-        if (mandatoryDescription === undefined) {
-            mandatoryDescription = mandatory.description;
-        }
         return {
             program: configuration.description,
-            mandatory: mandatoryDescription
+            mandatory: configuration.args
         };
     };
 
     self.getMandatoryName = function() {
-        var mandatoryName;
-        mandatoryName = mandatory.name;
-        if (configuration.args !== undefined) {
-            mandatoryName = 'args';
+        if (configuration.args === undefined) {
+            return undefined;
         }
-        return mandatoryName;
+        return 'args';
     };
 
     return self;
