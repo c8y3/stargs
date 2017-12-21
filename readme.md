@@ -3,6 +3,7 @@
 A small command line argument parser. The primary design goal of this library API is to be both:
 * as simple as possible,
 * and fully unit testable.
+
 As a consequence, the `parse` operation provided by stargs is a pure function, which does not, for instance, do any of the following:
 * reading of `process.argv`,
 * output to the standard output,
@@ -27,7 +28,7 @@ Create a script `example` with the following content:
 const Stargs = require('stargs');
 
 const parser = Stargs({
-    description: 'This is the description of what the program does.',
+    description: 'A random program description!',
     args: 'input',
     options: {
         boolean: {
@@ -79,7 +80,7 @@ If no argument (or option `-h` or `--help`) is provided, it outputs the help mes
 
   Usage: example [options] <input>
 
-  This is the description of what the program does.
+  A random program description!
 
 
   Options:
