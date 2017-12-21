@@ -57,7 +57,6 @@ Make this script executable:
 
 ```
 chmod +x example
-
 ```
 
 Then run it with some arguments:
